@@ -13,7 +13,7 @@
   usern = username.split.join
   user = User.new ({
     name: Faker::Name.name,
-    uname: usern
+    uname: usern,
   })
   user.password = "password"
   user.save!

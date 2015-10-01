@@ -3,9 +3,9 @@
 one:
   name: MyString
   uname: MyString
-  password_digest: MyString
+  password: MyString
 
 two:
   name: MyString
   uname: MyString
-  password_digest: MyString
+  password: MyString

@@ -7,12 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header class="main">
+  <h1><%= link_to "Mike's Tweeters!!", root_path %></h1>
+  <nav>
+      |
+      <%= link_to 'New Post', new_tweet_path %>
+      |
+      <%= link_to 'Posts', tweets_path %>
+      |
+      <%= link_to 'Sign Up', new_user_path %>
+      |
+      <% if logged_in? %>
+        <%= link_to 'Logout', logout_path %>
+      <% else %>
+        <%= link_to 'Login', login_path %>
+      <% end %>
+      |
+  </nav>
+</header>
 
 <%= notice %>
 <%= alert %>
 
 <%= yield %>
 
-
+  <footer>
+    <%= params.inspect if Rails.env.development? %>
+  </footer>
 </body>
 </html>
