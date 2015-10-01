@@ -11,11 +11,13 @@
 100.times do
   username = Faker::Book.title << Faker::App.name
   usern = username.split.join
-  User.create ({
+  user = User.new ({
     name: Faker::Name.name,
-    uname: usern,
-    password_digest: "password"
+    uname: usern
   })
+  user.password = "password"
+  user.save!
+
 end
 
 300.times do
