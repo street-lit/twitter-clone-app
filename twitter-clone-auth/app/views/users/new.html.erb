@@ -1,7 +1,8 @@
 <h1>New User</h1>
 
 <%= form_for(@user) do |f| %>
-  <p> Email: <%= f.text_field :email %></p>
+  <p> Name: <%= f.text_field :name %></p>
+  <p> Username: <%= f.text_field :uname %></p>
   <p> Password: <%= f.password_field :password %> </p>
   <p> Password Confirmation: <%= f.password_field :password_confirmation %></p>
   <%= f.submit "Create User" %>

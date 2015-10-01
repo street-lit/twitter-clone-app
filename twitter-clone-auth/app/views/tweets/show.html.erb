@@ -1,0 +1,35 @@
+<article>
+  <header>
+    <h1><%= @tweet.title %></h1>
+  </header>
+  <p><%= raw @tweet.message %></p>
+  <footer>
+    <div class="actions">
+      <%= link_to 'All Tweets', tweets_path %>
+      <% if logged_in? %>
+        <%= link_to 'Edit', edit_tweet_path(@tweet) %>
+      <% end %>
+    </div>
+  </footer>
+</article>
+
+<section class="comments">
+  <h3> Comments (<%= @tweet.comments.count %>)</h3>
+  <hr>
+  <%= form_for(@comment) do |f| %>
+    <%= f.hidden_field :tweet_id, value: @tweet.id %>
+    <p>
+      <%= f.label :body %> <%= f.text_area :body %>
+    </p>
+    <p><%= f.submit "New Comment" %></p>
+  <% end %>
+  <hr>
+  <ul>
+    <% @tweet.comments.each do |comment| %>
+      <li>
+        <strong><%= comment.id %></strong>
+        <%= comment.body %>
+      </li>
+    <% end %>
+  </ul>
+</section>

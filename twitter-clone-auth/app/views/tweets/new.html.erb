@@ -1,0 +1,18 @@
+<h2>New Tweets</h2>
+<%= form_for(@tweet) do |f| %>
+  <fieldset>
+    <legend>Title</legend>
+    <%= f.text_field :title, placeholder: 'My Cool Tweet', maxlength: 50 %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Body</legend>
+    <%= f.text_area :message, rows: 10, cols: 45, placeholder: 'Lorem Ipsum..' %>
+  </fieldset>
+
+
+    <%= f.hidden_field :user_id, value: @tweet.id %>
+
+
+  <p><%= f.submit "Publish Tweet" %></p>
+<% end %>

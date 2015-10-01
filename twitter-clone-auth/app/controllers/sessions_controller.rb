@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       # Save the user id inside a browser cookie.
       # Specifically, the rails 'session'. This is how we keep the user
       # logged in when they navigate around our website.
-      set_user_session(user)
+      session[:user_id] = user.id
       redirect_to root_url, notice: 'Successfully logged in!'
     else
       # If user's login doesn't work, send them back to the login form.
@@ -21,11 +21,5 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: 'Successfully Logged Out. Goodbye!'
-  end
-
-  private
-
-  def set_user_session(user)
-    session[:logged_in_users_id] = user.id
   end
 end
