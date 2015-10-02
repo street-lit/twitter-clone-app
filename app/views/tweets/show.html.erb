@@ -27,7 +27,7 @@
   <ul>
     <% @tweet.comments.each do |comment| %>
       <li>
-        <strong><%= comment.id %></strong>
+        <strong>Comment ID: <%= comment.id %></strong>
         <%= comment.body %>
       </li>
     <% end %>
