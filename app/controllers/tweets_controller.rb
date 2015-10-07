@@ -17,6 +17,7 @@ class TweetsController < ApplicationController
   def create
     authenticate_user!
     @tweet = Tweet.new(tweet_params)
+    @tweet.user_id = current_user.id
     if @tweet.save
       redirect_to @tweet, notice: "New Post successfully created"
     else
