@@ -19,7 +19,7 @@
 var validatorGenerator = function (validator) {
   var selector = $(validator.selector);
   selector.on('keydown', function () {
-    var $errorField = selector.parent().find('.errors');
+    var $errorField = selector.parents().find('.errors');
     if (selector.val().length < validator.minLength) {
       selector.addClass('field-with-errors');
       $errorField.html(validator.message);
@@ -32,11 +32,11 @@ var validatorGenerator = function (validator) {
 };
 
 
-var postTitleValidator = {
-  selector: '#post_title',
-  minLength: 5,
-  message: 'Post Title must be a minimum of 5 characters'
+var commentBodyValidator = {
+  selector: '#comment_body',
+  minLength: 1,
+  message: 'Comment can\'t be blank'
 };
 
 
-validatorGenerator(postTitleValidator);
+validatorGenerator(commentBodyValidator);
