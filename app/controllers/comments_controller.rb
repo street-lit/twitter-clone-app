@@ -2,7 +2,14 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to :back
+      respond_to do |f|
+        f.html do |f|
+          redirect_to :back
+        end
+        f.json do
+          render json: @comment.to_json
+        end
+      end
     else
       flash[:alert] = 'Errors'
       render :back

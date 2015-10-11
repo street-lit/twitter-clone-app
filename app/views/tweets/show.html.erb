@@ -19,9 +19,10 @@
   <%= form_for(@comment) do |f| %>
     <%= f.hidden_field :tweet_id, value: @tweet.id %>
     <p>
-      <%= f.label :body %> <%= f.text_area :body %>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
     </p>
-    <p><%= f.submit "New Comment" %></p>
+    <div class="btn btn-info" id="newComment">Create Comment</div>
   <% end %>
   <hr>
   <ul>

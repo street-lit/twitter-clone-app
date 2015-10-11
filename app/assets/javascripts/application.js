@@ -14,3 +14,29 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+var validatorGenerator = function (validator) {
+  var selector = $(validator.selector);
+  selector.on('keydown', function () {
+    var $errorField = selector.parent().find('.errors');
+    if (selector.val().length < validator.minLength) {
+      selector.addClass('field-with-errors');
+      $errorField.html(validator.message);
+    } else {
+      selector.removeClass('field-with-errors')
+                .addClass('correct-field');
+      $errorField.html('');
+    }
+  });
+};
+
+
+var postTitleValidator = {
+  selector: '#post_title',
+  minLength: 5,
+  message: 'Post Title must be a minimum of 5 characters'
+};
+
+
+validatorGenerator(postTitleValidator);

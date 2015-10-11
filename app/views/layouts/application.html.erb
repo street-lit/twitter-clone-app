@@ -2,8 +2,7 @@
 <html>
 <head>
   <title>TwitterCloneAuth</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -28,11 +27,12 @@
 
 <%= notice %>
 <%= alert %>
-
+<div class='container'>
 <%= yield %>
-
-  <footer>
-    <%= params.inspect if Rails.env.development? %>
-  </footer>
+</div>
+<footer>
+  <%= params.inspect if Rails.env.development? %>
+</footer>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
